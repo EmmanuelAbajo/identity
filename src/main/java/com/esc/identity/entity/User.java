@@ -27,7 +27,7 @@ public class User {
 
 	@Column(name = "password", nullable = false)
 	private String password;
-	private boolean enabled;
+	private boolean disabled;
 
 	@ManyToMany
 	@JoinTable(name = "user_roles", 
@@ -75,12 +75,12 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
+	public boolean isDisabled() {
+		return disabled;
 	}
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setDisabled(boolean disabled) {
+		this.disabled = disabled;
 	}
 
 	public Collection<Role> getRoles() {

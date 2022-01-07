@@ -52,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
 		user.setEmail("admin@gmail.com");
 		user.setFirstName("Admin");
 		user.setLastName("Admin");
-		user.setEnabled(true);
+		user.setDisabled(false);
 		user.setPassword(passwordEncoder.encode("admin123"));
 		user.setRoles(Arrays.asList(admin));
 		

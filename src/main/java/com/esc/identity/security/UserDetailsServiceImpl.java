@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				() -> new UsernameNotFoundException(String.format("User with email %s does not exist", email)));
 
 		return withUsername(user.getEmail()).password(user.getPassword()).authorities(getAuthorities(user.getRoles()))
-				.accountExpired(false).accountLocked(false).credentialsExpired(false).disabled(false).build();
+				.accountExpired(false).accountLocked(false).credentialsExpired(false).disabled(user.isDisabled()).build();
 	}
 
 	private Collection<? extends GrantedAuthority> getAuthorities(Collection<Role> roles) {
