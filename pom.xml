@@ -31,6 +31,12 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<!-- JSON Web Token Support -->
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
