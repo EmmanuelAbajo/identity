@@ -35,6 +35,10 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
 	private Collection<Role> roles;
 
+	public User() {
+		super();
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -90,7 +94,5 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
 
 }

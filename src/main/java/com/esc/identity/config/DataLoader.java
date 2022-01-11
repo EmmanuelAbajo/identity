@@ -44,8 +44,12 @@ public class DataLoader implements CommandLineRunner {
 		logger.info("Read and Write Privileges created");
 		
 		logger.info("Creating Admin Role");
-		Role admin = createRole("ROLE_ADMIN", Arrays.asList(read, write));
+		Role rAdmin = createRole("ROLE_ADMIN", Arrays.asList(read, write));
 		logger.info("Admin Role Created");
+		
+		logger.info("Creating User Role");
+		createRole("ROLE_USER", Arrays.asList(read));
+		logger.info("User Role Created");
 		
 		logger.info("Creating Admin User");
 		User user = new User();
@@ -54,7 +58,7 @@ public class DataLoader implements CommandLineRunner {
 		user.setLastName("Admin");
 		user.setDisabled(false);
 		user.setPassword(passwordEncoder.encode("admin123"));
-		user.setRoles(Arrays.asList(admin));
+		user.setRoles(Arrays.asList(rAdmin));
 		
 		userRepo.save(user);
 		logger.info("Admin User Created");
