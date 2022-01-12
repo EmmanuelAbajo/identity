@@ -73,7 +73,11 @@ public class JWTService {
 	}
 	
 	private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-		final Claims claims = Jwts.parser().setSigningKey(keyProvider.getPublicKey(publicKey.replaceAll("\\n", ""))).parseClaimsJwt(token).getBody();
+		final Claims claims = Jwts.parser()
+								.setSigningKey(keyProvider.getPublicKey(publicKey.replaceAll("\\n", "")))
+								.parseClaimsJwt(token)
+								.getBody();
+		
 		return claimsResolver.apply(claims);
 	}
 
